@@ -265,7 +265,7 @@ function MeetingRoomPage() {
     const startMeeting = async (finalSummary, cleanTranscript, createdBy) => {
 
         try {
-            await axios.post("http://localhost:8000/api/meetings/start", {
+            await axios.post(`${import.meta.env.VITE_API_URL}/api/meetings/start`, {
                 roomId, 
                 participants: participants.map((p) => ({
                     name: p.user?.name,
@@ -289,7 +289,7 @@ function MeetingRoomPage() {
         .map(m => `${m.sender}: ${m.text}`).join("\n");
 
         try {
-            const res = await axios.post("http://localhost:8000/api/ai/summary",{
+            const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/ai/summary`,{
                 text: cleanTranscript
             });
 

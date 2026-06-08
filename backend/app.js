@@ -10,7 +10,12 @@ const app = express();
 const {Server} = require("socket.io");
 
 
-app.use(cors({origin:"http://localhost:5173", credentials: true}));
+app.use(cors({origin:
+    [
+        "http://localhost:5173",
+        "https://collab-ai-vc0h.onrender.com"
+    ], 
+    credentials: true}));
 app.use(express.json());
 
 const connectDB = require("./config/db.js");
@@ -28,7 +33,11 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: "http://localhost:5173"
+        origin: 
+        [
+            "http://localhost:5173",
+            "https://collab-ai-vc0h.onrender.com"
+        ]    
     }
 });
 

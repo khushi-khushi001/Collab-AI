@@ -20,7 +20,7 @@ function MeetingHistoryPage() {
 
         try {
             
-            const response = await axios.get("http://localhost:8000/api/meetings/history");
+            const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/meetings/history`);
 
             setMeetings(response.data);
 

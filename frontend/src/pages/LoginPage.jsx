@@ -31,6 +31,8 @@ function LoginPage() {
             setLoading(true);
              
             const data = await loginUser(formData);
+
+            console.log("login response:", data);
            
             localStorage.setItem("user", JSON.stringify(data.user));
             login(data.user, data.token);
