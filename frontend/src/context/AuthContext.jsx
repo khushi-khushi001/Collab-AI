@@ -11,11 +11,12 @@ function AuthProvider({children}) {
         const savedToken = localStorage.getItem("token");
 
         const savedUser = localStorage.getItem("user");
+        const user = savedUser ? JSON.parse(savedUser) : null;
 
         if(savedToken && savedUser) {
             setToken(savedToken);
 
-            setUser(JSON.parse(savedUser));
+            setUser((savedUser));
 
         }
     }, []);
@@ -23,7 +24,6 @@ function AuthProvider({children}) {
     // login 
     const login = (userData, jwtToken) => {
         localStorage.setItem("token", jwtToken);
-
         localStorage.setItem("user", JSON.stringify(userData));
 
         setUser(userData);

@@ -27,7 +27,8 @@ function MeetingRoomPage() {
 
     const {user} = useContext(AuthContext);
 
-    const currUser = JSON.parse(localStorage.getItem("user"));
+    const userData = localStorage.getItem("user");
+    const currUser = userData ? JSON.parse(userData) : null;
 
     const [participants, setParticipants] = useState([]);
 
