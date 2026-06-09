@@ -62,8 +62,10 @@ ${text}`;
         res.json({ summary });
 
     } catch (error) {
-        console.log(error);
-        res.status(500).json({ message: "Gemini error" });
+        console.log("Gemini error", error);
+        res.status(500).json({ message: error.message,
+            stack: error.stack
+         });
     }
 };
 
