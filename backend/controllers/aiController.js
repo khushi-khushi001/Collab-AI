@@ -60,6 +60,7 @@ ${text}`;
         const summary = response.text();
 
         res.json({ summary });
+        console.log("gemini:", process.env.GEMINI_API_KEY);
 
     } catch (error) {
         console.log("Gemini error", error);
