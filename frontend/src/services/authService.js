@@ -11,7 +11,10 @@ export const signupUser = async(userData) => {
 
 // login 
 export const loginUser = async (userData) => {
+    console.log("user data:", userData);
     const response = await axios.post(`${API_URL}/api/auth/login`, userData);
+
+    console.log("env:", import.meta.env);
     console.log("api url:", `${API_URL}/api/auth/login`);
     return response.data;
 };
