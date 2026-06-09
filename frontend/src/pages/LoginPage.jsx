@@ -11,6 +11,8 @@ import Button from '../components/ui/Button';
 import InputField from '../components/shared/InputField';
 
 function LoginPage() {
+    console.log(console.log("api url:", process.env.VITE_API_URL ));
+    
     const navigate = useNavigate();
     const {login} = useContext(AuthContext);
 
