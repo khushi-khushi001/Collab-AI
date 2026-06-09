@@ -13,7 +13,7 @@ const {Server} = require("socket.io");
 app.use(cors({origin:
     [
         "http://localhost:5173",
-        "https://collab-ai-vc0h.onrender.com",
+        "https://collab-ai-backend-psgp.onrender.com",
         "https://collab-ai-app.onrender.com"
     ], 
     credentials: true}));
@@ -37,7 +37,8 @@ const io = new Server(server, {
         origin: 
         [
             "http://localhost:5173",
-            "https://collab-ai-vc0h.onrender.com"
+            "https://collab-ai-backend-psgp.onrender.com",
+            "https://collab-ai-app.onrender.com"
         ]    
     }
 });

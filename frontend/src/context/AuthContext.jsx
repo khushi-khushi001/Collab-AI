@@ -16,7 +16,7 @@ function AuthProvider({children}) {
         if(savedToken && savedUser) {
             setToken(savedToken);
 
-            setUser((savedUser));
+            setUser((user));
 
         }
     }, []);

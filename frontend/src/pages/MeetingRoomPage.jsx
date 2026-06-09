@@ -207,10 +207,6 @@ function MeetingRoomPage() {
  
             let remoteStream = event.streams[0];
 
-            console.log("stream active:", remoteStream?.active);
-            console.log("video track:", remoteStream.getVideoTracks().length);
-            console.log("video element:", remoteVideoRef.current);
-
             if(remoteVideoRef.current && remoteStream) {
                 remoteVideoRef.current.srcObject = remoteStream;
 
@@ -385,12 +381,13 @@ function MeetingRoomPage() {
 
               
                 // join socket room
-                if(!user?.name) return;
+                const activeUser = user || currUser
+                if(!activeUser?.name) return;
 
                 socket.emit("join-room", {roomId, 
                     user:{
-                     name: user?.name,
-                     email: user?.email,
+                     name: activeUser.name,
+                     email: activeUser.email,
                     },
                 });
 
@@ -468,8 +465,8 @@ function MeetingRoomPage() {
 
        
         socket.on("room-users", async(users) => {
-            console.log("users:", users);
-            console.log("my socket:", socket.id);
+            console.log("room users", users);
+            console.log("id:", socket.id);
             setParticipants(users);
 
            if(users.length === 2 && 
